@@ -1,3 +1,4 @@
+import { useReducer, useState } from "react";
 import { CarritoCompra } from "./componentes/CarritoCompra";
 import { Producto } from "./componentes/Producto";
 
@@ -35,8 +36,43 @@ const PRODUCTOS = [
   }
 ];
 
+const ACTIONS = {
+  ADD: 'add'
+}
+
+const productReducer = (state, action) => {
+  switch(action.type) {
+    case ACTIONS.ADD:
+      return [...state, action.payload ];
+    default:
+      return state;
+  }
+}
+
+
+
 
 function App() {
+
+  const [ productsAdded, dispatch ] = useReducer( productReducer, [] );
+  const [ pagar, setPagar ] = useState(0);
+
+  const agregarAlCarrito = (id, name, price) => {
+
+    const productoAgregado = {
+      id,
+      name,
+      price,
+    }
+
+    dispatch({
+      type: ACTIONS.ADD,
+      payload: productoAgregado
+    })
+
+  }
+
+  console.log(productsAdded)
 
   
   return (
@@ -46,7 +82,8 @@ function App() {
 
         {
           PRODUCTOS.map(producto => (
-            <Producto 
+            <Producto
+              agregar={ ()=> agregarAlCarrito(producto.id, producto.nombre, producto.price) }
               key={ producto.id }
               img={ producto.img }
               price={ producto.price }
@@ -55,7 +92,7 @@ function App() {
         }
         
       </div>
-      <CarritoCompra />
+      <CarritoCompra totalCompra={ pagar } />
     </>
     
   );

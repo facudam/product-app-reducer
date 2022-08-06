@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Producto = ({ img, price }) => {
+export const Producto = ({ img, price, agregar }) => {
   return (
-    <div className='product-container'>
+    <div className='product-container' onClick={ agregar }>
         <div>
             <img src={ img } alt='' />
         </div>
