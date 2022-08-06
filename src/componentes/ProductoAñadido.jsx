@@ -1,15 +1,23 @@
-import React from 'react'
+
 import { ACTIONS } from '../App'
 
-export const ProductoAñadido = ({ nombre, precio, dispatch, id, product }) => {
+export const ProductoAñadido = ({ nombre, precio, dispatch, id, product, pagar, setPagar }) => {
 
+    
+
+    const eliminarProducto = () => {
+      dispatch({type: ACTIONS.DELETE, payload: {id: product.id}})
+      setPagar(pagar - precio)
+    }
 
   return (
     <div className='añadido'>
         <div className='product-name'>
             <span>{ nombre }</span>
             <button
-              onClick={ () => dispatch({type: ACTIONS.DELETE, payload: {id: product.id}}) } 
+              onClick={ () => 
+                eliminarProducto()
+              } 
               className='quitar'>
               x
             </button>

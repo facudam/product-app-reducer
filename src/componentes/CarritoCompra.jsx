@@ -1,7 +1,7 @@
 import React from 'react'
 import { ProductoAñadido } from './ProductoAñadido'
 
-export const CarritoCompra = ({ totalCompra, agregados, dispatch }) => {
+export const CarritoCompra = ({ pagar, setPagar, agregados, dispatch }) => {
 
     
 
@@ -20,11 +20,13 @@ export const CarritoCompra = ({ totalCompra, agregados, dispatch }) => {
                         id= { agregado.id }
                         dispatch={ dispatch }
                         product={ agregado }
+                        pagar={ pagar }
+                        setPagar={ setPagar }
                     />
                 ))
             }
             <div className='finalizar-compra'>
-                <span>TOTAL: $ { totalCompra }</span>
+                <span>TOTAL: $ { pagar }</span>
                 <button className='pagar'>PAGAR</button>
             </div>   
         </div>

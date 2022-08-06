@@ -96,7 +96,13 @@ function App() {
         }
         
       </div>
-      <CarritoCompra totalCompra={ pagar } agregados={ productsAdded } dispatch={ dispatch  }/>
+      <CarritoCompra 
+        pagar={ pagar } 
+        setPagar={ setPagar }
+        agregados={ productsAdded } 
+        dispatch={ dispatch  }
+
+      />
     </>
     
   );
