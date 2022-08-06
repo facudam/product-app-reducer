@@ -33,6 +33,12 @@ const PRODUCTOS = [
     nombre: 'Silla gamer',
     img: 'https://http2.mlstatic.com/D_NQ_NP_735614-MLA44229767935_122020-W.webp',
     price: 50000
+  },
+  {
+    id: 6,
+    nombre: 'Bicicleta',
+    img: 'https://http2.mlstatic.com/D_Q_NP_821251-MLA50966199061_082022-AB.webp',
+    price: 57000
   }
 ];
 
@@ -76,9 +82,6 @@ function App() {
     setPagar( pagar + productoAgregado.price)
   }
 
-  //
-
-  
   return (
     <>
       <h1>Selecciona el producto que quieras llevar</h1>
