@@ -1,7 +1,7 @@
 import React from 'react'
 import { ProductoAñadido } from './ProductoAñadido'
 
-export const CarritoCompra = ({ totalCompra, agregados }) => {
+export const CarritoCompra = ({ totalCompra, agregados, dispatch }) => {
 
     
 
@@ -12,10 +12,19 @@ export const CarritoCompra = ({ totalCompra, agregados }) => {
         <div className='carrito'>
             {
                 //Acá agregaremos los productos añadidos
-                
+                agregados.map(agregado => (
+                    <ProductoAñadido 
+                        key={ agregado.id }
+                        nombre={ agregado.name }
+                        precio={ agregado.price }
+                        id= { agregado.id }
+                        dispatch={ dispatch }
+                        product={ agregado }
+                    />
+                ))
             }
             <div className='finalizar-compra'>
-                <span>Total:$ { totalCompra }</span>
+                <span>TOTAL: $ { totalCompra }</span>
                 <button className='pagar'>PAGAR</button>
             </div>   
         </div>

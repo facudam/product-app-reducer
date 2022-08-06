@@ -36,14 +36,17 @@ const PRODUCTOS = [
   }
 ];
 
-const ACTIONS = {
-  ADD: 'add'
+export const ACTIONS = {
+  ADD: 'add',
+  DELETE: 'delete',
 }
 
 const productReducer = (state, action) => {
   switch(action.type) {
     case ACTIONS.ADD:
       return [...state, action.payload ];
+    case ACTIONS.DELETE:
+      return state.filter( product => product.id !== action.payload.id )
     default:
       return state;
   }
@@ -70,9 +73,10 @@ function App() {
       payload: productoAgregado
     })
 
+    setPagar( pagar + productoAgregado.price)
   }
 
-  console.log(productsAdded)
+  //
 
   
   return (
@@ -92,7 +96,7 @@ function App() {
         }
         
       </div>
-      <CarritoCompra totalCompra={ pagar } />
+      <CarritoCompra totalCompra={ pagar } agregados={ productsAdded } dispatch={ dispatch  }/>
     </>
     
   );
