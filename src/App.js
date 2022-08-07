@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import { CarritoCompra } from "./componentes/CarritoCompra";
+import { ModalFinalizarCompra } from "./componentes/ModalFinalizarCompra";
 import { Producto } from "./componentes/Producto";
 
 
@@ -104,8 +105,9 @@ function App() {
         setPagar={ setPagar }
         agregados={ productsAdded } 
         dispatch={ dispatch  }
-
+        productsAdded={ productsAdded }
       />
+      
     </>
     
   );

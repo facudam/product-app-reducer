@@ -11,6 +11,8 @@ body {
 h1 {
   text-align: center;
   margin: 30px;
+  background-color: rgb(192, 192, 41);
+  padding: 10px;
 }
 .main-container {
   margin: auto;
@@ -129,4 +131,56 @@ h2 {
   cursor: pointer;
   
   box-shadow: 0px 0px 3px 2px #808080;
+}
+
+.pantalla {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.modal {
+  width: 100%;
+  max-width: 500px;
+  position: fixed;
+  top: 0;
+  left: calc(50% - 250px);
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  transition: all .5 ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-is-active {
+  top: calc(50% - 150px);
+}
+
+@media screen and (max-width: 520px) {
+  .modal {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.tittle-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-close {
+  padding: 3px 6px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  background-color: rgb(209, 7, 7);
 }
