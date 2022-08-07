@@ -10,7 +10,7 @@ export const ModalFinalizarCompra = ({ productsAdded, open, close }) => {
   return ReactDOM.createPortal(
     <div>
       <div className='pantalla'></div>
-      <div className='modal modal-is-active'>
+      <div className='modal'>
         <div className='tittle-button'>
           <p>¡Felicitaciones! Los siguientes productos ya son tuyos:</p>
           <button
@@ -22,7 +22,7 @@ export const ModalFinalizarCompra = ({ productsAdded, open, close }) => {
         <ul>
           { 
             productsAdded.map(producto => (
-              <li>{producto.name}</li>
+              <li className='li'>{producto.name}</li>
             ))
           }
         </ul>

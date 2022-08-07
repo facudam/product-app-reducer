@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
 import { CarritoCompra } from "./componentes/CarritoCompra";
-import { ModalFinalizarCompra } from "./componentes/ModalFinalizarCompra";
+//import { ModalFinalizarCompra } from "./componentes/ModalFinalizarCompra";
 import { Producto } from "./componentes/Producto";
 
 
